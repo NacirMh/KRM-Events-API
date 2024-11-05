@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\KRM-Events-API.props" />
+</Project>

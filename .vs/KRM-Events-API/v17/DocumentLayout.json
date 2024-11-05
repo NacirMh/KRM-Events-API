@@ -1,0 +1,347 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\krm-events-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\krm-events-api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\announcer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\announcer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\migrations\\20241105025848_initdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\migrations\\20241105025848_initdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\clientannouncer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\clientannouncer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\appuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\eventrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\eventrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\opinion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\opinion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\contact.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\couponcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\couponcode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\favorite.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\models\\hashtag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\models\\hashtag.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|c:\\users\\nacir\\source\\repos\\krm-events-api\\krm-events-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{1D792EA4-0B4F-4735-A0A8-6F73C48A79A8}|KRM-Events-API\\KRM-Events-API.csproj|solutionrelative:krm-events-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20241105025848_InitDb.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Migrations\\20241105025848_InitDb.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Migrations\\20241105025848_InitDb.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Migrations\\20241105025848_InitDb.cs",
+              "RelativeToolTip": "KRM-Events-API\\Migrations\\20241105025848_InitDb.cs",
+              "ViewState": "AQIAAA4CAAAAAAAAAAAmwP0BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T02:58:49.075Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClientAnnouncer.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\ClientAnnouncer.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\ClientAnnouncer.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\ClientAnnouncer.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\ClientAnnouncer.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAMAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T02:42:16.913Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Client.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Client.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Client.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:17:18.664Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "KRM-Events-API\\Data\\AppDbContext.cs",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAADQAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T23:06:11.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Admin.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:15:48.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Program.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Program.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Program.cs",
+              "RelativeToolTip": "KRM-Events-API\\Program.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T23:05:14.602Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Announcer.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Announcer.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Announcer.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Announcer.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Announcer.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:16:52.462Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KRM-Events-API.csproj",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\KRM-Events-API.csproj",
+              "RelativeDocumentMoniker": "KRM-Events-API\\KRM-Events-API.csproj",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\KRM-Events-API.csproj",
+              "RelativeToolTip": "KRM-Events-API\\KRM-Events-API.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-11-04T23:00:49.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "EventRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\EventRequest.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\EventRequest.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\EventRequest.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\EventRequest.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:57:30.601Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Opinion.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Opinion.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Opinion.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Opinion.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Opinion.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAowBMAAAArAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:22:33.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Ticket.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Ticket.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Ticket.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Ticket.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAswA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:24:52.709Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Contact.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Contact.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Contact.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Contact.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Contact.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwBkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:18:02.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AppUser.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\AppUser.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\AppUser.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\AppUser.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\AppUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-04T23:15:36.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CouponCode.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\CouponCode.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\CouponCode.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\CouponCode.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\CouponCode.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAuwA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:20:23.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Event.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Event.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Event.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBIAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:19:20.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Favorite.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Favorite.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Favorite.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Favorite.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Favorite.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAwAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:19:00.619Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Hashtag.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Hashtag.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Hashtag.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Hashtag.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Hashtag.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAgwBcAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:21:20.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Category.cs",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "KRM-Events-API\\Models\\Category.cs",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\Models\\Category.cs",
+              "RelativeToolTip": "KRM-Events-API\\Models\\Category.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-05T00:21:34.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\appsettings.json",
+              "RelativeDocumentMoniker": "KRM-Events-API\\appsettings.json",
+              "ToolTip": "C:\\Users\\Nacir\\source\\repos\\KRM-Events-API\\KRM-Events-API\\appsettings.json",
+              "RelativeToolTip": "KRM-Events-API\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-05T00:11:58.668Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
