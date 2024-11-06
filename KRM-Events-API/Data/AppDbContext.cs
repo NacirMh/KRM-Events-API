@@ -1,4 +1,5 @@
 ﻿using KRM_Events_API.Model;
+using KRM_Events_API.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,21 @@ namespace KRM_Events_API.Data
         {
             
         }
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ClientAnnouncer> CLientAnnouncers { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<CouponCode> CouponCodes { get; set; }
+        public DbSet<Event> Events { get; set; }
+        public DbSet<EventRequest> EventRequests { get; set; }
+
+        public DbSet<Favorite> Favorites { get; set; }  
+
+        public DbSet<Hashtag> Hashtags { get; set; }
+
+        public DbSet<Opinion> Opinions { get; set; }
+
+        public DbSet<Ticket> Tickets { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -37,6 +53,17 @@ namespace KRM_Events_API.Data
             };
 
             builder.Entity<IdentityRole>().HasData(roles);
+
+            builder.Entity<EventHashtag>().HasKey(x => new { x.HashtagId, x.EventId });
+            builder.Entity<EventHashtag>()
+                .HasOne(x => x.Event)
+                .WithMany(x => x.EventHashtags)
+                .HasForeignKey(x => x.EventId);
+            builder.Entity<EventHashtag>()
+                .HasOne(eh => eh.Hashtag)
+                .WithMany(h => h.EventHashtags)
+                .HasForeignKey(eh => eh.HashtagId);
+
 
             builder.Entity<Favorite>().HasKey(f => new { f.EventId, f.ClientId });
 

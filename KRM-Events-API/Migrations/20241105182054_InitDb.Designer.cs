@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KRM_Events_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241105025848_InitDb")]
+    [Migration("20241105182054_InitDb")]
     partial class InitDb
     {
         /// <inheritdoc />
@@ -233,9 +233,6 @@ namespace KRM_Events_API.Migrations
                     b.Property<int>("EventRequestId")
                         .HasColumnType("int");
 
-                    b.Property<int>("HashTagId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -249,8 +246,6 @@ namespace KRM_Events_API.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
-
-                    b.HasIndex("HashTagId");
 
                     b.ToTable("Events");
                 });
@@ -310,9 +305,6 @@ namespace KRM_Events_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("EventId")
-                        .HasColumnType("int");
-
                     b.Property<string>("HashTagDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -326,8 +318,6 @@ namespace KRM_Events_API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("EventId");
 
                     b.ToTable("Hashtags");
                 });
@@ -347,9 +337,6 @@ namespace KRM_Events_API.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.HasKey("EventId", "ClientId");
 
                     b.HasIndex("ClientId");
@@ -368,9 +355,6 @@ namespace KRM_Events_API.Migrations
                     b.Property<DateTime>("BoughtAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
                     b.Property<bool>("IsUsedCouponCode")
                         .HasColumnType("bit");
 
@@ -379,6 +363,21 @@ namespace KRM_Events_API.Migrations
                     b.HasIndex("ClientId");
 
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("KRM_Events_API.Models.EventHashtag", b =>
+                {
+                    b.Property<int>("HashtagId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HashtagId", "EventId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventHashtag");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -410,19 +409,19 @@ namespace KRM_Events_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9bfb30f9-0b46-47f2-b68b-18433f6c4a6d",
+                            Id = "80d768ca-cc25-4749-8787-86b68315fe55",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "8730e3e1-b484-4a6a-a472-8025fcebbf77",
+                            Id = "61b93c82-70a2-4208-8ea2-57a0a5b9dd42",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "82fe7ae3-5bf9-49f7-a7df-a89ea2db2483",
+                            Id = "c47e8eb7-6ab8-4073-968c-78cc26b53b17",
                             Name = "Announcer",
                             NormalizedName = "ANNOUNCER"
                         });
@@ -597,15 +596,7 @@ namespace KRM_Events_API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("KRM_Events_API.Model.Hashtag", "Hashtag")
-                        .WithMany()
-                        .HasForeignKey("HashTagId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Category");
-
-                    b.Navigation("Hashtag");
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.EventRequest", b =>
@@ -646,17 +637,6 @@ namespace KRM_Events_API.Migrations
                     b.Navigation("Event");
                 });
 
-            modelBuilder.Entity("KRM_Events_API.Model.Hashtag", b =>
-                {
-                    b.HasOne("KRM_Events_API.Model.Event", "Event")
-                        .WithMany()
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Event");
-                });
-
             modelBuilder.Entity("KRM_Events_API.Model.Opinion", b =>
                 {
                     b.HasOne("KRM_Events_API.Model.Client", "Client")
@@ -693,6 +673,25 @@ namespace KRM_Events_API.Migrations
                     b.Navigation("Client");
 
                     b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("KRM_Events_API.Models.EventHashtag", b =>
+                {
+                    b.HasOne("KRM_Events_API.Model.Event", "Event")
+                        .WithMany("EventHashtags")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("KRM_Events_API.Model.Hashtag", "Hashtag")
+                        .WithMany("EventHashtags")
+                        .HasForeignKey("HashtagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("Hashtag");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -778,6 +777,8 @@ namespace KRM_Events_API.Migrations
                 {
                     b.Navigation("CouponCodes");
 
+                    b.Navigation("EventHashtags");
+
                     b.Navigation("EventRequest")
                         .IsRequired();
 
@@ -786,6 +787,11 @@ namespace KRM_Events_API.Migrations
                     b.Navigation("Tickets");
 
                     b.Navigation("favorites");
+                });
+
+            modelBuilder.Entity("KRM_Events_API.Model.Hashtag", b =>
+                {
+                    b.Navigation("EventHashtags");
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Announcer", b =>

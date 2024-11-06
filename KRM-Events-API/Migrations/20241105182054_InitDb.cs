@@ -71,6 +71,21 @@ namespace KRM_Events_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Hashtags",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HashTagName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HashTagDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Hashtags", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -232,6 +247,33 @@ namespace KRM_Events_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Events",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Adresse = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    capacity = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    EventRequestId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Events", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Events_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ClientAnnouncerFollow",
                 columns: table => new
                 {
@@ -246,7 +288,7 @@ namespace KRM_Events_API.Migrations
                         column: x => x.AnnouncerId,
                         principalTable: "Announcers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ClientAnnouncerFollow_Clients_ClientId",
                         column: x => x.ClientId,
@@ -271,6 +313,36 @@ namespace KRM_Events_API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CouponCodes", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CouponCodes_Events_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Events",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventHashtag",
+                columns: table => new
+                {
+                    EventId = table.Column<int>(type: "int", nullable: false),
+                    HashtagId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventHashtag", x => new { x.HashtagId, x.EventId });
+                    table.ForeignKey(
+                        name: "FK_EventHashtag_Events_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Events",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_EventHashtag_Hashtags_HashtagId",
+                        column: x => x.HashtagId,
+                        principalTable: "Hashtags",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -293,32 +365,10 @@ namespace KRM_Events_API.Migrations
                         principalTable: "Announcers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Events",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Adresse = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    capacity = table.Column<int>(type: "int", nullable: false),
-                    HashTagId = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
-                    EventRequestId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Events", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Events_Categories_CategoryId",
-                        column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        name: "FK_EventRequests_Events_EventId",
+                        column: x => x.EventId,
+                        principalTable: "Events",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -348,34 +398,11 @@ namespace KRM_Events_API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Hashtags",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    HashTagName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HashTagDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    EventId = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Hashtags", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Hashtags_Events_EventId",
-                        column: x => x.EventId,
-                        principalTable: "Events",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Opinions",
                 columns: table => new
                 {
                     ClientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     EventId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -402,7 +429,6 @@ namespace KRM_Events_API.Migrations
                 {
                     ClientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     EventId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     BoughtAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsUsedCouponCode = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -428,9 +454,9 @@ namespace KRM_Events_API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "82fe7ae3-5bf9-49f7-a7df-a89ea2db2483", null, "Announcer", "ANNOUNCER" },
-                    { "8730e3e1-b484-4a6a-a472-8025fcebbf77", null, "Client", "CLIENT" },
-                    { "9bfb30f9-0b46-47f2-b68b-18433f6c4a6d", null, "Admin", "ADMIN" }
+                    { "61b93c82-70a2-4208-8ea2-57a0a5b9dd42", null, "Client", "CLIENT" },
+                    { "80d768ca-cc25-4749-8787-86b68315fe55", null, "Admin", "ADMIN" },
+                    { "c47e8eb7-6ab8-4073-968c-78cc26b53b17", null, "Announcer", "ANNOUNCER" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -488,6 +514,11 @@ namespace KRM_Events_API.Migrations
                 column: "EventId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_EventHashtag_EventId",
+                table: "EventHashtag",
+                column: "EventId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_EventRequests_AnnouncerId",
                 table: "EventRequests",
                 column: "AnnouncerId");
@@ -504,19 +535,9 @@ namespace KRM_Events_API.Migrations
                 column: "CategoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Events_HashTagId",
-                table: "Events",
-                column: "HashTagId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Favorites_ClientId",
                 table: "Favorites",
                 column: "ClientId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Hashtags_EventId",
-                table: "Hashtags",
-                column: "EventId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Opinions_ClientId",
@@ -527,39 +548,11 @@ namespace KRM_Events_API.Migrations
                 name: "IX_Tickets_ClientId",
                 table: "Tickets",
                 column: "ClientId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_CouponCodes_Events_EventId",
-                table: "CouponCodes",
-                column: "EventId",
-                principalTable: "Events",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_EventRequests_Events_EventId",
-                table: "EventRequests",
-                column: "EventId",
-                principalTable: "Events",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Events_Hashtags_HashTagId",
-                table: "Events",
-                column: "HashTagId",
-                principalTable: "Hashtags",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Hashtags_Events_EventId",
-                table: "Hashtags");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -585,6 +578,9 @@ namespace KRM_Events_API.Migrations
                 name: "CouponCodes");
 
             migrationBuilder.DropTable(
+                name: "EventHashtag");
+
+            migrationBuilder.DropTable(
                 name: "EventRequests");
 
             migrationBuilder.DropTable(
@@ -600,22 +596,22 @@ namespace KRM_Events_API.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
+                name: "Hashtags");
+
+            migrationBuilder.DropTable(
                 name: "Announcers");
 
             migrationBuilder.DropTable(
                 name: "Clients");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
-
-            migrationBuilder.DropTable(
                 name: "Events");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Hashtags");
+                name: "Categories");
         }
     }
 }

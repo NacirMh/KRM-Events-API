@@ -6,9 +6,7 @@ namespace KRM_Events_API.Model
     [Table("Tickets")]
     public class Ticket
     {
-        [Key]
-        public int Id { get; set; }
-
+       
         public DateTime BoughtAt { get; set; } = DateTime.Now;
 
         public bool IsUsedCouponCode { get; set; } = false;

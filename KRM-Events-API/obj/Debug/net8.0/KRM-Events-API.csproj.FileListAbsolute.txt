@@ -150,3 +150,4 @@ C:\Users\Nacir\source\repos\KRM-Events-API\KRM-Events-API\bin\Debug\net8.0\Micro
 C:\Users\Nacir\source\repos\KRM-Events-API\KRM-Events-API\bin\Debug\net8.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Nacir\source\repos\KRM-Events-API\KRM-Events-API\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Nacir\source\repos\KRM-Events-API\KRM-Events-API\bin\Debug\net8.0\Newtonsoft.Json.Bson.dll
+C:\Users\Nacir\source\repos\KRM-Events-API\KRM-Events-API\obj\Debug\net8.0\KRM-Events-API.sourcelink.json

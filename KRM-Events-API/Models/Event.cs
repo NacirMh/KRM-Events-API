@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using KRM_Events_API.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KRM_Events_API.Model
@@ -17,11 +18,7 @@ namespace KRM_Events_API.Model
         public string Adresse { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public int capacity { get; set; } 
-        
-        [ForeignKey(nameof(Hashtag))]
-        public int HashTagId { get; set; }  
-
-        public Hashtag? Hashtag { get; set; }
+      
 
         [ForeignKey(nameof(Category))]
         public int CategoryId {  get; set; }
@@ -40,6 +37,8 @@ namespace KRM_Events_API.Model
         public List<Opinion> Opinions { get; set; } = new List<Opinion>();
 
         public List<Ticket> Tickets { get; set; } = new List<Ticket>();
+
+        public List<EventHashtag> EventHashtags { get; set;} = new List<EventHashtag>();
 
 
 

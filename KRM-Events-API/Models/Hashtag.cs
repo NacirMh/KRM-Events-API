@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using KRM_Events_API.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace KRM_Events_API.Model
@@ -15,13 +16,8 @@ namespace KRM_Events_API.Model
         [Required]
         public string HashTagDescription { get; set; } = string.Empty;
 
-        [Required]
-        public string Image { get; set; } = string.Empty;
+        public List<EventHashtag> EventHashtags { get; set; } = new List<EventHashtag>();
 
-        [ForeignKey(nameof(Event))]
-        public int EventId { get; set; } 
 
-        public Event? Event { get; set; }
- 
     }
 }
