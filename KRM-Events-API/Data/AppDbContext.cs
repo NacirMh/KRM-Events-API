@@ -52,7 +52,11 @@ namespace KRM_Events_API.Data
 
             };
 
+            
             builder.Entity<IdentityRole>().HasData(roles);
+            builder.Entity<Client>().ToTable("Clients");
+            builder.Entity<Announcer>().ToTable("Announcers");
+            builder.Entity<Admin>().ToTable("Admins");
 
             builder.Entity<EventHashtag>().HasKey(x => new { x.HashtagId, x.EventId });
             builder.Entity<EventHashtag>()

@@ -4,6 +4,7 @@ using KRM_Events_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KRM_Events_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241108111047_fixingRol")]
+    partial class fixingRol
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -402,19 +405,19 @@ namespace KRM_Events_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2294a9a3-a383-48b0-bed6-066528802d29",
+                            Id = "beb9c455-81f0-47c3-944b-58cb5a96ed9a",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "b68e3bb2-c586-4428-bb4c-0c87f51dd257",
+                            Id = "6b8bb010-7ad9-4c17-8a53-ec9aa1d00412",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "c29a9e8a-6679-4d75-90fd-e26a7a762933",
+                            Id = "2811f38e-2dc0-471e-bb2e-f75a6ddd9c85",
                             Name = "Announcer",
                             NormalizedName = "ANNOUNCER"
                         });

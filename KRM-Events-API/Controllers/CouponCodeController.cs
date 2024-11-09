@@ -1,11 +1,7 @@
-﻿using KRM_Events_API.Data;
-using KRM_Events_API.Dtos.CouponCode;
+﻿using KRM_Events_API.Dtos.CouponCode;
 using KRM_Events_API.Interfaces;
 using KRM_Events_API.Mappers;
-using KRM_Events_API.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 
 namespace KRM_Events_API.Controllers
 {

@@ -1,9 +1,7 @@
 ﻿using KRM_Events_API.Dtos.Hashtag;
 using KRM_Events_API.Interfaces;
 using KRM_Events_API.Mappers;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Identity.Client;
 
 namespace KRM_Events_API.Controllers
 {
