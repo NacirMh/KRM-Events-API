@@ -15,8 +15,8 @@ namespace KRM_Events_API.Model
 
         public string ClientId { get; set; }
         public int EventId { get; set; }
-        public Client? Client { get; set; }
+        public virtual Client? Client { get; set; }
 
-        public Event? Event { get; set; }
+        public virtual Event? Event { get; set; }
     }
 }

@@ -59,10 +59,12 @@ namespace KRM_Events_API.Data
             builder.Entity<Admin>().ToTable("Admins");
 
             builder.Entity<EventHashtag>().HasKey(x => new { x.HashtagId, x.EventId });
+
             builder.Entity<EventHashtag>()
                 .HasOne(x => x.Event)
                 .WithMany(x => x.EventHashtags)
                 .HasForeignKey(x => x.EventId);
+
             builder.Entity<EventHashtag>()
                 .HasOne(eh => eh.Hashtag)
                 .WithMany(h => h.EventHashtags)

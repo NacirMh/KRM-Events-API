@@ -25,6 +25,6 @@ namespace KRM_Events_API.Model
         [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
 
-        public Event? Event { get; set; }
+        public virtual Event? Event { get; set; }
     }
 }

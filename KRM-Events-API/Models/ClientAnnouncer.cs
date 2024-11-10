@@ -9,8 +9,8 @@ namespace KRM_Events_API.Model
          public string ClientId { get; set; }
          public string AnnouncerId {  get; set; }
 
-         public Client? Client { get; set; }
+         public virtual Client? Client { get; set; }
 
-         public Announcer? Announcer { get; set; }
+         public virtual Announcer? Announcer { get; set; }
     }
 }

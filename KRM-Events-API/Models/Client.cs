@@ -6,10 +6,10 @@ namespace KRM_Events_API.Model
     [Table("Clients")]
     public class Client : AppUser
     {
-        public List<Favorite> favorites { get; set; } = new List<Favorite>();
-        public List<Opinion> Opinions { get; set; } = new List<Opinion>();
-        public List<Ticket> Tickets { get; set; } = new List<Ticket>();
-        public List<ClientAnnouncer> ClientAnnouncers { get; set; } = new List<ClientAnnouncer>();
+        public virtual List<Favorite> favorites { get; set; } = new List<Favorite>();
+        public virtual List<Opinion> Opinions { get; set; } = new List<Opinion>();
+        public virtual List<Ticket> Tickets { get; set; } = new List<Ticket>();
+        public virtual List<ClientAnnouncer> ClientAnnouncers { get; set; } = new List<ClientAnnouncer>();
 
     }
 }

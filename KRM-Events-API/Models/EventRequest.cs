@@ -13,15 +13,14 @@ namespace KRM_Events_API.Model
 
         public string Comment { get; set; } = "Pending...";
 
-        [Required]
+        
         [ForeignKey(nameof(Announcer))]
         public string AnnouncerId { get; set; }
-        public Announcer? Announcer { get; set; }
+        public virtual Announcer? Announcer { get; set; }
 
-        [Required]
         [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
-        public Event? Event { get; set; }
+        public virtual Event? Event { get; set; }
 
     }
 }

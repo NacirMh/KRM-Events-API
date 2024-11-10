@@ -18,7 +18,7 @@ namespace KRM_Events_API.Model
         [Required]
         public string Image { get; set; } = string.Empty;
 
-        public List<Event> Events { get; set; } = new List<Event>();
+        public virtual List<Event> Events { get; set; } = new List<Event>();
 
     }
 }

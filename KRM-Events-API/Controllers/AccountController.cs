@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Rewrite;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -139,11 +140,11 @@ namespace KRM_Events_API.Controllers
         }
 
         [HttpGet("Details")]
+        [Authorize]
         public async Task<IActionResult> GetUserDetails()
         {
-             var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            var user = await _userManager.FindByIdAsync(userId!);
+            var user = await _userManager.GetUserAsync(User);
 
             if (user is null)
             {
@@ -156,6 +157,18 @@ namespace KRM_Events_API.Controllers
             var userDetails = user.ToUserDetailsFromUser();
             return Ok(userDetails);
         }
+
+        [HttpGet("AllUsers")]
+        [Authorize]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var Users = await _userManager.Users.Select(x => x.ToUserDetailsFromUser()).ToListAsync();
+
+            return Ok(Users);
+
+        }    
+
     }
 
 }
+

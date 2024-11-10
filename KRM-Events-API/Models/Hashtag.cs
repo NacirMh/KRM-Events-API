@@ -16,7 +16,7 @@ namespace KRM_Events_API.Model
         [Required]
         public string HashTagDescription { get; set; } = string.Empty;
 
-        public List<EventHashtag> EventHashtags { get; set; } = new List<EventHashtag>();
+        public virtual List<EventHashtag> EventHashtags { get; set; } = new List<EventHashtag>();
 
 
     }

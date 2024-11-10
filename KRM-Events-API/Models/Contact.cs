@@ -18,9 +18,9 @@ namespace KRM_Events_API.Model
 
         [Required]
         [ForeignKey(nameof(AppUser))]
-        public string UserId { get; set; } 
+        public string UserId { get; set; }
 
-        public AppUser? AppUser { get; set; }
+        public virtual AppUser? AppUser { get; set; }
 
 
     }

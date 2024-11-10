@@ -8,6 +8,6 @@ namespace KRM_Events_API.Model
         public string LastName { get; set; }
 
         public string City { get; set; }
-        public List<Contact> contacts {  get; set; } = new List<Contact>();
+        public virtual List<Contact> contacts {  get; set; } = new List<Contact>();
     }
 }

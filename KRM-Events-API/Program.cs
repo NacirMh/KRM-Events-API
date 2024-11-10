@@ -17,24 +17,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 //JWT Configuration
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme =
-    options.DefaultChallengeScheme =
-    options.DefaultForbidScheme =
-    options.DefaultScheme =
-    options.DefaultSignInScheme =
-    options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
-}).AddJwtBearer(options =>
-          options.TokenValidationParameters = new TokenValidationParameters()
-          {
-              ValidateIssuer = true,
-              ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
-              ValidateAudience = true,
-              ValidAudience = builder.Configuration["JWT:ValidAudience"],
-              IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecurityKey"]))
-          }
-);
+
 
 //prevent json cycle 
 builder.Services.AddControllers().AddNewtonsoftJson(
@@ -49,10 +32,15 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IHashtagRepository, HashtagRepository>();
 builder.Services.AddScoped<ICouponCodeRepository, CouponCodeRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
-builder.Services.AddScoped<ITokenService, TokenService>();  
+builder.Services.AddScoped<IEventRequestRepository, EventRequestRepository>();
+
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConDb")));
+builder.Services.AddDbContext<AppDbContext>(options => { 
+    options.UseLazyLoadingProxies().UseSqlServer(builder.Configuration.GetConnectionString("ConDb"));
+    
+});
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 {
@@ -63,8 +51,31 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 }
 ).AddEntityFrameworkStores<AppDbContext>();
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme =
+    options.DefaultChallengeScheme =
+    options.DefaultForbidScheme =
+    options.DefaultScheme =
+    options.DefaultSignInScheme =
+    options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+        ValidateAudience = true,
+        ValidAudience = builder.Configuration["JWT:ValidAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["JWT:SecurityKey"]))
+    };
+    options.SaveToken = true;
+
+}
+);
+
 builder.Services.AddControllers().AddNewtonsoftJson(
-    options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; }
+   options => { options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore; }
 );
 
 builder.Services.AddSwaggerGen(option =>

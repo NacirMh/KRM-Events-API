@@ -20,8 +20,6 @@ namespace KRM_Events_API.Dtos.CouponCode
         [Required]
         public int Quantity { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
-
-        [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
 
     }

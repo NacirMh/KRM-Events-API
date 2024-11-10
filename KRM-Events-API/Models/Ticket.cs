@@ -15,12 +15,12 @@ namespace KRM_Events_API.Model
         [ForeignKey(nameof(Client))]
         public string ClientId { get; set; }
 
-        public Client Client { get; set; }
+        public virtual Client Client { get; set; }
 
 
         [ForeignKey(nameof(Event))]
         public int EventId { get; set; }
-        public Event? Event { get; set; }
+        public virtual Event? Event { get; set; }
     
     }
 }

@@ -16,6 +16,6 @@ namespace KRM_Events_API.Dtos.Category
         [Required]
         public string Image { get; set; } = string.Empty;
 
-        public List<Event> Events { get; set; } = new List<Event>();
+        public List<Model.Event> Events { get; set; } = new List<Model.Event>();
     }
 }
