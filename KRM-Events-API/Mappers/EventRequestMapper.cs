@@ -5,7 +5,7 @@ namespace KRM_Events_API.Mappers
 {
     public static class EventRequestMapper
     {
-        public static EventRequestDTO ToEventRequestDTO (this EventRequest eventRequest)
+        public static EventRequestDTO ToEventRequestDTO(this EventRequest eventRequest)
         {
             return new EventRequestDTO
             {
@@ -14,10 +14,22 @@ namespace KRM_Events_API.Mappers
                 Id = eventRequest.Id,
                 EventDTO = eventRequest.Event.ToEventDTO(),
                 Status = eventRequest.Status
-
-
             };
-        } 
-    
+        }
+
+        public static Event ToEventFromCreateEventDTO(this CreateEventDTO eventRqDto)
+        {
+            return new Event
+            {
+                Adresse = eventRqDto.Adresse,
+                capacity = eventRqDto.capacity,
+                CategoryId = eventRqDto.CategoryId,
+                Date = eventRqDto.Date,
+                City = eventRqDto.City,
+                Description = eventRqDto.Description,
+                Name = eventRqDto.Name,
+                Price = eventRqDto.Price,
+            };
+        }
     }
 }

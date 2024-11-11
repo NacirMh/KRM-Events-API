@@ -1,6 +1,7 @@
 ﻿using KRM_Events_API.Dtos.Category;
 using KRM_Events_API.Interfaces;
 using KRM_Events_API.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,6 +34,7 @@ namespace KRM_Events_API.Controllers
             return Ok(await _categoryRepo.GetAll());
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDTO categoryDto)
         {
@@ -45,6 +47,7 @@ namespace KRM_Events_API.Controllers
             return Ok(categoryCreated);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateCategory([FromRoute] int id , [FromBody] UpdateCategory updateCategory)
         {
@@ -58,6 +61,7 @@ namespace KRM_Events_API.Controllers
             return Ok(categoryUpdate);  
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {

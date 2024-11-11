@@ -33,6 +33,9 @@ builder.Services.AddScoped<IHashtagRepository, HashtagRepository>();
 builder.Services.AddScoped<ICouponCodeRepository, CouponCodeRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IEventRequestRepository, EventRequestRepository>();
+builder.Services.AddScoped<IFollowRepository, FollowRepository>();
+builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 

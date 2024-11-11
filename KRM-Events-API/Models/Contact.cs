@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KRM_Events_API.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -21,7 +22,6 @@ namespace KRM_Events_API.Model
         public string UserId { get; set; }
 
         public virtual AppUser? AppUser { get; set; }
-
 
     }
 }

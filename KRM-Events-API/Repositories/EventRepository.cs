@@ -115,6 +115,7 @@ namespace KRM_Events_API.Repositories
                 {
                     if (await _DbContext.Hashtags.FirstOrDefaultAsync(x => x.Id == HashtagId) != null) { 
                           var hashtagEvent = new EventHashtag { EventId = id , HashtagId = HashtagId};
+                          Event.EventHashtags.Add(hashtagEvent);
                     }
                 }
             }

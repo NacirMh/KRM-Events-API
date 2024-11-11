@@ -1,6 +1,7 @@
 ﻿using KRM_Events_API.Dtos.CouponCode;
 using KRM_Events_API.Interfaces;
 using KRM_Events_API.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KRM_Events_API.Controllers
@@ -18,24 +19,29 @@ namespace KRM_Events_API.Controllers
             _eventRepo = EventRepo;
         }
 
+
         [HttpGet("{eventId}")]
         public async Task<IActionResult> GetCouponCodesByEvent(int eventId)
         {
-            if (!await _eventRepo.EventExists(eventId)) {
+            if (!await _eventRepo.EventExists(eventId))
+            {
                 return NotFound($"Event Id : {eventId} doesn't  exists");
             }
-            var couponCodes = _couponCodeRepo.GetCouponCodesByEvent(eventId).Result.AsQueryable().Select(x=>x.ToCouponCodeDTO());
+            var couponCodes = _couponCodeRepo.GetCouponCodesByEvent(eventId).Result.AsQueryable().Select(x => x.ToCouponCodeDTO());
             return Ok(couponCodes);
         }
 
+        [Authorize(Roles = "Announcer")]
         [HttpPost("{eventId}")]
         public async Task<IActionResult> GenerateCouponCode(int eventId, [FromBody] CreateCouponCodeDTO createCodeDto)
         {
-            if (!await _eventRepo.EventExists(eventId)) {
+            if (!await _eventRepo.EventExists(eventId))
+            {
                 return NotFound($"Event id : {eventId} doesn't exist");
             }
 
-            if (!ModelState.IsValid) {
+            if (!ModelState.IsValid)
+            {
                 return BadRequest(ModelState);
             }
 
@@ -54,7 +60,7 @@ namespace KRM_Events_API.Controllers
         //    {
         //        return BadRequest("coupon code isn't Valid");
         //    }
-        //    await _couponCodeRepo.UseCouponCode();
+        //   // await _couponCodeRepo.UseCouponCode();
         //    return Ok();
         //}
 
@@ -63,10 +69,11 @@ namespace KRM_Events_API.Controllers
         public async Task<IActionResult> DeleteCouponCode(int id)
         {
             var couponCode = await _couponCodeRepo.DeleteCouponCode(id);
-            if (couponCode == null) {
-                 return NotFound($"CouponCode id : {id} doesn't exist");
+            if (couponCode == null)
+            {
+                return NotFound($"CouponCode id : {id} doesn't exist");
             }
-            return Ok(couponCode);  
+            return Ok(couponCode);
         }
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("KRM-Events-API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87b364cf0a05c2711f884aef40c7c2448781b572")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aa4d53341a973b77f479068e48c39f715b9d8138")]
 [assembly: System.Reflection.AssemblyProductAttribute("KRM-Events-API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("KRM-Events-API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -16,6 +16,7 @@ namespace KRM_Events_API.Model
         
         [ForeignKey(nameof(Announcer))]
         public string AnnouncerId { get; set; }
+
         public virtual Announcer? Announcer { get; set; }
 
         [ForeignKey(nameof(Event))]
