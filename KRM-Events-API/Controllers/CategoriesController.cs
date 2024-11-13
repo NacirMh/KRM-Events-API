@@ -46,7 +46,7 @@ namespace KRM_Events_API.Controllers
             }
             var category = categoryDto.ToCategoryFromCreateDto();
             var categoryCreated = await _categoryRepo.CreateCategory(category);
-            return Ok(categoryCreated);
+            return Ok(categoryCreated.ToCategoryDTO());
         }
 
         [Authorize(Roles = "Admin")]
@@ -60,7 +60,7 @@ namespace KRM_Events_API.Controllers
             if (categoryUpdate == null) {
                 return NotFound($"Category id : {id} not found");
             }
-            return Ok(categoryUpdate);  
+            return Ok(categoryUpdate.ToCategoryDTO());  
         }
 
         [Authorize(Roles = "Admin")]
