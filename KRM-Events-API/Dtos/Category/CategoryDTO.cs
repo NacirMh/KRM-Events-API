@@ -1,4 +1,5 @@
-﻿using KRM_Events_API.Model;
+﻿using KRM_Events_API.Dtos.Event;
+using KRM_Events_API.Model;
 using System.ComponentModel.DataAnnotations;
 
 namespace KRM_Events_API.Dtos.Category
@@ -16,6 +17,6 @@ namespace KRM_Events_API.Dtos.Category
         [Required]
         public string Image { get; set; } = string.Empty;
 
-        public List<Model.Event> Events { get; set; } = new List<Model.Event>();
+        public List<EventDTO> Events { get; set; } = new List<EventDTO>();
     }
 }

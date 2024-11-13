@@ -6,7 +6,7 @@ namespace KRM_Events_API.Interfaces
     {
         public Task<Opinion> CreateOpinion(Opinion opinion);
         public Task<Opinion> UpdateOpinion(Opinion opinion);
-        public Task<Opinion> DeleteOpinion(Opinion opinion);
-        public Task<List<Opinion>> GetOpinionsByEvent(string EventId);
+        public Task<Opinion> DeleteOpinion(int opinionId);
+        public Task<List<Opinion>> GetOpinionsByEvent(int EventId);
     }
 }

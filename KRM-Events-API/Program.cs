@@ -16,7 +16,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 
-//JWT Configuration
 
 
 //prevent json cycle 
@@ -35,7 +34,8 @@ builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IEventRequestRepository, EventRequestRepository>();
 builder.Services.AddScoped<IFollowRepository, FollowRepository>();
 builder.Services.AddScoped<IFavoriteRepository, FavoriteRepository>();
-
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<IOpinionRepository, OpinionRepository>();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 

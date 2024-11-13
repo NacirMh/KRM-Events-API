@@ -19,19 +19,36 @@ namespace KRM_Events_API.Repositories
             if (Event == null) {
                 return null;
             }
-            await _dbContext.Events.AddAsync(Event);
+            _dbContext.Opinions.Add(opinion);   
             await _dbContext.SaveChangesAsync();
             return opinion;
         }
 
-        public async Task<Opinion> DeleteOpinion(Opinion opinion)
+        public async Task<Opinion> DeleteOpinion(int id)
         {
-            throw new NotImplementedException();
+            var opinion = await _dbContext.Opinions.FirstOrDefaultAsync(x => x.Id == id);
+            if (opinion is null)
+            {
+                return null;
+            }
+            _dbContext.Opinions.Remove(opinion);
+            await _dbContext.SaveChangesAsync();    
+            return opinion;
         }
 
-        public Task<List<Opinion>> GetOpinionsByEvent(string EventId)
+        
+
+        public async Task<List<Opinion>> GetOpinionsByEvent(int EventId)
         {
-            throw new NotImplementedException();
+            var Event = await _dbContext.Events.FirstOrDefaultAsync(x => x.Id == EventId);
+            if(Event == null)
+            {
+                return null;
+            }
+            var opinions = await _dbContext.Opinions.ToListAsync();
+            var opinionsByEvent = opinions.Where(x => x.EventId == EventId).ToList();  
+            return opinionsByEvent;
+
         }
 
         public Task<Opinion> UpdateOpinion(Opinion opinion)

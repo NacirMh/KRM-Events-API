@@ -13,7 +13,7 @@ namespace KRM_Events_API.Mappers
                 CategoryName = category.CategoryName,
                 CategoryDescription = category.CategoryDescription,
                 Image = category.Image,
-                Events = category.Events,
+                Events = category.Events.Select(x => x.ToEventDTO()).ToList(),
             };
        }
         public static Category ToCategoryFromCreateDto(this CreateCategoryDTO category) {

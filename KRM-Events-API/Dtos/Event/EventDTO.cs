@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using KRM_Events_API.Dtos.CouponCode;
 using KRM_Events_API.Dtos.Hashtag;
+using KRM_Events_API.Dtos.Opinion;
 
 namespace KRM_Events_API.Dtos.Event
 {
@@ -26,7 +27,7 @@ namespace KRM_Events_API.Dtos.Event
 
         //public List<Favorite> favorites { get; set; } = new List<Favorite>();
 
-        // public List<Opinion> Opinions { get; set; } = new List<Opinion>();
+        public List<OpinionDTO> Opinions { get; set; } = new List<OpinionDTO>();
 
         //public List<Ticket> Tickets { get; set; } = new List<Ticket>();
 

@@ -31,7 +31,9 @@ namespace KRM_Events_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok(await _categoryRepo.GetAll());
+            var categories = await _categoryRepo.GetAll();
+            var categoriesDTO = categories.Select(x=>x.ToCategoryDTO()).ToList();   
+            return Ok(categoriesDTO);
         }
 
         [Authorize(Roles = "Admin")]
