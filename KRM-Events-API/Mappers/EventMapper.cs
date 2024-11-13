@@ -22,6 +22,7 @@ namespace KRM_Events_API.Mappers
                 Id = model.Id,
                 CouponCodes = model.CouponCodes.Select(x => x.ToCouponCodeDTO()).ToList(),
                 Hashtags = model.EventHashtags.Select(x => x.Hashtag.ToHashtagDTO()).ToList(),
+                Opinions = model.Opinions.Select(x=>x.ToOpinionDTO()).ToList(),
             };
         }
 

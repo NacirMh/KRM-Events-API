@@ -13,7 +13,7 @@ namespace KRM_Events_API.Mappers
                 ClientDetails = opinion.Client.ToUserDetailsFromUser(),
                 Content = opinion.Content,
                 Id = opinion.Id,
-                Event = opinion.Event.ToEventDTO(),
+                EventId = opinion.EventId,
                 CreatedAt = opinion.CreatedAt,
 
             };

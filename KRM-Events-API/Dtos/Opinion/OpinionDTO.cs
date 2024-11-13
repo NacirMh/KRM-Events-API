@@ -15,6 +15,6 @@ namespace KRM_Events_API.Dtos.Opinion
 
        
         public UserDetailsDTO ClientDetails { get; set; }
-        public EventDTO Event { get; set; }
+        public int EventId { get; set; }
     }
 }

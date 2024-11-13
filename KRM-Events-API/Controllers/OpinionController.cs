@@ -51,7 +51,7 @@ namespace KRM_Events_API.Controllers
         }
 
         [Authorize(Roles ="Admin")]
-        [HttpDelete("{OpinionId}")]
+        [HttpDelete("{opinionId}")]
         public async Task<IActionResult> DeleteOpinion(int opinionId)
         {
             var opinion = await _opinionRepository.DeleteOpinion(opinionId);
