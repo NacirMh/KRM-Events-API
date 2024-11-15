@@ -2,7 +2,10 @@
 using KRM_Events_API.Helpers;
 using KRM_Events_API.Interfaces;
 using KRM_Events_API.Mappers;
+using KRM_Events_API.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KRM_Events_API.Controllers
@@ -12,10 +15,12 @@ namespace KRM_Events_API.Controllers
     public class EventController : ControllerBase
     {
         private readonly IEventRepository _eventRepository;
+        private readonly UserManager<AppUser> _userManager;
 
-        public EventController(IEventRepository eventRepository)
+        public EventController(IEventRepository eventRepository , UserManager<AppUser> userManager)
         {
             _eventRepository = eventRepository;
+            _userManager = userManager;
         }
 
         [HttpGet("GetEvents")]
@@ -26,6 +31,7 @@ namespace KRM_Events_API.Controllers
             return Ok(eventsDto);
 
         }
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEventById([FromRoute] int id)

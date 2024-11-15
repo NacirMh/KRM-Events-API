@@ -17,13 +17,10 @@ namespace KRM_Events_API.Controllers
         private readonly IEventRepository _eventRepository;
         private readonly ITicketingService _ticketingService;
 
-        public TicketController(UserManager<AppUser> userManager, IEventRepository eventRepository, ITicketingService ticketingService)
+        public TicketController(UserManager<AppUser> userManager, ITicketingService ticketingService )
         {
             _userManager = userManager;
-            _eventRepository = eventRepository;
             _ticketingService = ticketingService;
-
-
         }
 
 
@@ -61,6 +58,22 @@ namespace KRM_Events_API.Controllers
                 }
                 tickets.Add(ticket);
             }
+            return Ok(tickets.Select(x=>x.ToTicketDto()));
+        }
+
+        
+        [HttpGet("ByClient")]
+        public async Task<IActionResult> GetTicketsByClient(string ClientId)
+        {
+            var tickets = await _ticketingService.GetTicketsByClient(ClientId);
+            return Ok(tickets.Select(x => x.ToTicketDto()));
+
+        }
+
+        [HttpGet("ByEvent{EventId}")]
+        public async Task<IActionResult> GetTicketsByClient(int EventId)
+        {
+            var tickets = await _ticketingService.GetTicketsByEvent(EventId);
             return Ok(tickets.Select(x=>x.ToTicketDto()));
         }
     }

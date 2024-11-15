@@ -2,6 +2,7 @@
 {
     public class EventQueryObject
     {
+        public string? AnnouncerId { get; set; } = string.Empty;
         public string? CategoryName { get; set; } = string.Empty;
 
         public string? HashtagName {  get; set; } = string.Empty;

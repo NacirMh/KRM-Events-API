@@ -17,7 +17,7 @@ namespace KRM_Events_API.Repositories
         public async Task<Ticket> AddTicket(Ticket ticket)
         {
             var EntityTicket = await  _dbContext.Tickets.AddAsync(ticket);
-           
+            
 
             await _dbContext.SaveChangesAsync();
             return ticket;
@@ -27,14 +27,16 @@ namespace KRM_Events_API.Repositories
         public async Task<List<Ticket>> GetTicketsByClient(string ClientId)
         {
             var tickets = _dbContext.Tickets.AsQueryable().Where(x=>x.ClientId.Equals(ClientId));
-            return await tickets.ToListAsync();
+            var ticketsList = await tickets.ToListAsync();
+            return tickets.ToList();
           
         }
 
         public async Task<List<Ticket>> GetTicketsByEvent(int id)
         {
             var tickets = _dbContext.Tickets.AsQueryable().Where(x => x.EventId == id);
-            return await tickets.ToListAsync();
+            var ticketsList = await tickets.ToListAsync();
+            return ticketsList;
         }
     }
 }

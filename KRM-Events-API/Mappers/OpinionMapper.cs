@@ -15,6 +15,7 @@ namespace KRM_Events_API.Mappers
                 Id = opinion.Id,
                 EventId = opinion.EventId,
                 CreatedAt = opinion.CreatedAt,
+                Title = opinion.Title,
 
             };
         }
@@ -26,6 +27,7 @@ namespace KRM_Events_API.Mappers
                 ClientId = userId,
                 Content = opinionDto.Content,
                 EventId = opinionDto.EventId,
+                Title = opinionDto.Title,    
             };
         }
     }

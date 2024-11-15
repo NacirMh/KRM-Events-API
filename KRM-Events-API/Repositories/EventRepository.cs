@@ -50,6 +50,10 @@ namespace KRM_Events_API.Repositories
                     events = events.Where(x => category.CategoryName.Contains(query.CategoryName));
                 }
             }
+            if (!string.IsNullOrWhiteSpace(query.AnnouncerId))
+            {
+                events = events.Where(x=>x.EventRequest.AnnouncerId == query.AnnouncerId);
+            }
 
             if (!string.IsNullOrWhiteSpace(query.City))
             {

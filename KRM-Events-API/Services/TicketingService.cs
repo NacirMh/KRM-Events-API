@@ -1,5 +1,7 @@
 ﻿using KRM_Events_API.Interfaces;
 using KRM_Events_API.Model;
+using Microsoft.AspNetCore.JsonPatch.Internal;
+using Microsoft.AspNetCore.Mvc;
 
 namespace KRM_Events_API.Services
 {
@@ -41,6 +43,17 @@ namespace KRM_Events_API.Services
 
             return ticketAdded;
         }
+        public async Task<List<Ticket>> GetTicketsByClient(string ClientId)
+        {
+            var tickets = await _ticketRepository.GetTicketsByClient(ClientId);
+            return tickets;
 
-}
+        }
+
+        public async Task<List<Ticket>> GetTicketsByEvent(int EventId)
+        {
+            var tickets = await _ticketRepository.GetTicketsByEvent(EventId);
+            return tickets;
+        }
+    }
 }
