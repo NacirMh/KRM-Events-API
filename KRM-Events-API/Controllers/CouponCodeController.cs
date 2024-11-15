@@ -31,6 +31,7 @@ namespace KRM_Events_API.Controllers
             return Ok(couponCodes);
         }
 
+        
         [Authorize(Roles = "Announcer")]
         [HttpPost("{eventId}")]
         public async Task<IActionResult> GenerateCouponCode(int eventId, [FromBody] CreateCouponCodeDTO createCodeDto)
@@ -49,22 +50,22 @@ namespace KRM_Events_API.Controllers
             return Ok(couponCode);
         }
 
-        //[HttpPost("{EventId}")]
-        //public async Task<IActionResult> UseCouponCode(int EventId, [FromBody] string Code)
-        //{
-        //    if (!await _eventRepo.EventExists(EventId))
-        //    {
-        //        return NotFound($"event id : {EventId} doesn't exist")
-        //    }
-        //    if (!await _couponCodeRepo.verifyCouponCode(EventId, Code))
-        //    {
-        //        return BadRequest("coupon code isn't Valid");
-        //    }
-        //   // await _couponCodeRepo.UseCouponCode();
-        //    return Ok();
-        //}
+        [HttpPost("verifyCouponCode/{EventId}")]
+        public async Task<IActionResult> VerifyCouponCode(int EventId, [FromBody] string Code)
+        {
+            if (!await _eventRepo.EventExists(EventId))
+            {
+                return NotFound($"event id : {EventId} doesn't exist");
+            }
+            var couponCode = await _couponCodeRepo.verifyCouponCode(EventId, Code);
+            if (couponCode is null)
+            {
+                return BadRequest("coupon code isn't Valid");
+            }
 
-
+            return Ok(couponCode.ToCouponCodeDTO());
+        }
+        
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCouponCode(int id)
         {

@@ -27,13 +27,18 @@ namespace KRM_Events_API.Services
                 new Claim(JwtRegisteredClaimNames.Email, user.Email ?? ""),
                 new Claim(JwtRegisteredClaimNames.NameId ,user.Id ?? ""),
                 new (JwtRegisteredClaimNames.Aud,_configuration.GetSection("JWT").GetSection("ValidAudience").Value!),
-                new (JwtRegisteredClaimNames.Iss,_configuration.GetSection("JWT").GetSection("ValidIssuer").Value!)
+                new (JwtRegisteredClaimNames.Iss,_configuration.GetSection("JWT").GetSection("ValidIssuer").Value!),
             };
+
+
             var userRoles =  await _userManager.GetRolesAsync(user);
+
             foreach (var userRole in userRoles)
             {
                 claims.Add(new Claim(ClaimTypes.Role, userRole));
             }
+
+
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha256);
 
             var TokenDescriptor = new SecurityTokenDescriptor
@@ -46,7 +51,9 @@ namespace KRM_Events_API.Services
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
+
             var token = tokenHandler.CreateToken(TokenDescriptor);
+
             return tokenHandler.WriteToken(token);
 
         }

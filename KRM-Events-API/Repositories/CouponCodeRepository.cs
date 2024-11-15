@@ -47,18 +47,29 @@ namespace KRM_Events_API.Repositories
                 return null;
             }
             ExistingCouponCode.Quantity--;
+            await _context.SaveChangesAsync();
             return ExistingCouponCode;
         }
+        public async Task<CouponCode?> GetById(int couponCodeId)
+        {
+            var couponCode = await _context.CouponCodes.FirstOrDefaultAsync(x => x.Id == couponCodeId);
+            if (couponCode is null)
+            {
+                return null;
+            }
+             return couponCode; 
+        }
 
-        public async Task<bool> verifyCouponCode(int EventId, string couponCodeCode)
+        
+        public async Task<CouponCode?> verifyCouponCode(int EventId, string couponCodeCode)
         {
             var CouponCode = await _context.CouponCodes.FirstOrDefaultAsync(x => x.EventId == EventId);
 
             if (CouponCode != null && CouponCode.Code.Equals(couponCodeCode))
             {
-                return true;
+                return CouponCode;
             }
-            return false;
+            return null;
         }
     }
 }

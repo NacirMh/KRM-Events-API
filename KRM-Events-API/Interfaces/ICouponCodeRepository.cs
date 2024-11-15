@@ -13,7 +13,8 @@ namespace KRM_Events_API.Interfaces
 
         public Task<CouponCode> UseCouponCode(int id);
 
-        public Task <bool> verifyCouponCode(int EventId , string couponCodeCode);
+        public Task <CouponCode?> verifyCouponCode(int EventId , string couponCodeCode);
+        public Task<CouponCode?> GetById(int couponCodeId);
 
     }
 }

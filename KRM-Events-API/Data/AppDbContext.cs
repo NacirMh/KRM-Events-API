@@ -93,7 +93,6 @@ namespace KRM_Events_API.Data
                 .WithMany(c => c.Opinions)
                 .HasForeignKey(o => o.ClientId);
 
-            builder.Entity<Ticket>().HasKey(t => new { t.EventId , t.ClientId});
             builder.Entity<Ticket>()
                 .HasOne(o => o.Event)
                 .WithMany(e => e.Tickets)
