@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace KRM_Events_API.Migrations
 {
     /// <inheritdoc />
-    public partial class InitDb : Migration
+    public partial class initDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -77,8 +77,7 @@ namespace KRM_Events_API.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     HashTagName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HashTagDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Image = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    HashTagDescription = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -102,6 +101,23 @@ namespace KRM_Events_API.Migrations
                         name: "FK_AspNetRoleClaims_AspNetRoles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "AspNetRoles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Admins",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admins", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Admins_AspNetUsers_Id",
+                        column: x => x.Id,
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -401,14 +417,17 @@ namespace KRM_Events_API.Migrations
                 name: "Opinions",
                 columns: table => new
                 {
-                    ClientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    EventId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ClientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    EventId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Opinions", x => new { x.EventId, x.ClientId });
+                    table.PrimaryKey("PK_Opinions", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Opinions_Clients_ClientId",
                         column: x => x.ClientId,
@@ -427,14 +446,17 @@ namespace KRM_Events_API.Migrations
                 name: "Tickets",
                 columns: table => new
                 {
-                    ClientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    EventId = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     BoughtAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    IsUsedCouponCode = table.Column<bool>(type: "bit", nullable: false)
+                    IsUsedCouponCode = table.Column<bool>(type: "bit", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    ClientId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    EventId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Tickets", x => new { x.EventId, x.ClientId });
+                    table.PrimaryKey("PK_Tickets", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Tickets_Clients_ClientId",
                         column: x => x.ClientId,
@@ -454,9 +476,9 @@ namespace KRM_Events_API.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "61b93c82-70a2-4208-8ea2-57a0a5b9dd42", null, "Client", "CLIENT" },
-                    { "80d768ca-cc25-4749-8787-86b68315fe55", null, "Admin", "ADMIN" },
-                    { "c47e8eb7-6ab8-4073-968c-78cc26b53b17", null, "Announcer", "ANNOUNCER" }
+                    { "4a27ac80-8b6f-42a1-80fa-7799e5ee79b1", null, "Admin", "ADMIN" },
+                    { "7fbe5bd3-1da6-46f2-819a-df182321af59", null, "Announcer", "ANNOUNCER" },
+                    { "b420ecd0-e4ac-45a7-8c1c-7ab6ad1e848a", null, "Client", "CLIENT" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -545,14 +567,27 @@ namespace KRM_Events_API.Migrations
                 column: "ClientId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Opinions_EventId",
+                table: "Opinions",
+                column: "EventId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Tickets_ClientId",
                 table: "Tickets",
                 column: "ClientId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Tickets_EventId",
+                table: "Tickets",
+                column: "EventId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Admins");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

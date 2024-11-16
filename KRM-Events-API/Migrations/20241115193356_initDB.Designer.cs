@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KRM_Events_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241105182054_InitDb")]
-    partial class InitDb
+    [Migration("20241115193356_initDB")]
+    partial class initDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -21,6 +21,9 @@ namespace KRM_Events_API.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("Proxies:ChangeTracking", false)
+                .HasAnnotation("Proxies:CheckEquality", false)
+                .HasAnnotation("Proxies:LazyLoading", true)
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -313,10 +316,6 @@ namespace KRM_Events_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Hashtags");
@@ -324,10 +323,14 @@ namespace KRM_Events_API.Migrations
 
             modelBuilder.Entity("KRM_Events_API.Model.Opinion", b =>
                 {
-                    b.Property<int>("EventId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<string>("ClientId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Content")
@@ -337,30 +340,51 @@ namespace KRM_Events_API.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("EventId", "ClientId");
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("ClientId");
+
+                    b.HasIndex("EventId");
 
                     b.ToTable("Opinions");
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Ticket", b =>
                 {
-                    b.Property<int>("EventId")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<string>("ClientId")
-                        .HasColumnType("nvarchar(450)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime>("BoughtAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("ClientId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsUsedCouponCode")
                         .HasColumnType("bit");
 
-                    b.HasKey("EventId", "ClientId");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
 
                     b.HasIndex("ClientId");
+
+                    b.HasIndex("EventId");
 
                     b.ToTable("Tickets");
                 });
@@ -409,19 +433,19 @@ namespace KRM_Events_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "80d768ca-cc25-4749-8787-86b68315fe55",
+                            Id = "4a27ac80-8b6f-42a1-80fa-7799e5ee79b1",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "61b93c82-70a2-4208-8ea2-57a0a5b9dd42",
+                            Id = "b420ecd0-e4ac-45a7-8c1c-7ab6ad1e848a",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "c47e8eb7-6ab8-4073-968c-78cc26b53b17",
+                            Id = "7fbe5bd3-1da6-46f2-819a-df182321af59",
                             Name = "Announcer",
                             NormalizedName = "ANNOUNCER"
                         });
@@ -533,18 +557,25 @@ namespace KRM_Events_API.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("KRM_Events_API.Model.Admin", b =>
+                {
+                    b.HasBaseType("KRM_Events_API.Model.AppUser");
+
+                    b.ToTable("Admins", (string)null);
+                });
+
             modelBuilder.Entity("KRM_Events_API.Model.Announcer", b =>
                 {
                     b.HasBaseType("KRM_Events_API.Model.AppUser");
 
-                    b.ToTable("Announcers");
+                    b.ToTable("Announcers", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Client", b =>
                 {
                     b.HasBaseType("KRM_Events_API.Model.AppUser");
 
-                    b.ToTable("Clients");
+                    b.ToTable("Clients", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.ClientAnnouncer", b =>
@@ -741,6 +772,15 @@ namespace KRM_Events_API.Migrations
                     b.HasOne("KRM_Events_API.Model.AppUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("KRM_Events_API.Model.Admin", b =>
+                {
+                    b.HasOne("KRM_Events_API.Model.AppUser", null)
+                        .WithOne()
+                        .HasForeignKey("KRM_Events_API.Model.Admin", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

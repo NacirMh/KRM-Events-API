@@ -4,7 +4,6 @@ using KRM_Events_API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,11 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KRM_Events_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241115182346_addedTitleToOpinion")]
-    partial class addedTitleToOpinion
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -161,6 +158,10 @@ namespace KRM_Events_API.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -343,10 +344,6 @@ namespace KRM_Events_API.Migrations
                     b.Property<int>("EventId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ClientId");
@@ -433,19 +430,19 @@ namespace KRM_Events_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "90b0b094-2414-4198-a704-22cbc2967c5a",
+                            Id = "7b98f91d-129f-44ee-8ff5-207368684e4b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "ddc9e4db-ed86-4957-9548-6d52afe219de",
+                            Id = "f36a82c9-3eb4-4e6c-8e65-e7114e19515b",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "3841c4f6-e9c5-485f-b639-c5668788cb21",
+                            Id = "e8e0d2ee-0fed-4245-8650-90d65a5ae2d9",
                             Name = "Announcer",
                             NormalizedName = "ANNOUNCER"
                         });

@@ -12,6 +12,7 @@ namespace KRM_Events_API.Mappers
             return new Contact
             {
                 Content = createDto.Content,
+                Title = createDto.Title,
                 UserId = UserId
             };
         }
@@ -23,7 +24,8 @@ namespace KRM_Events_API.Mappers
                 Content = contact.Content,
                 UserId = contact.UserId,
                 Id = contact.Id,
-                UserDetails = contact.AppUser.ToUserDetailsFromUser()
+                UserDetails = contact.AppUser.ToUserDetailsFromUser(),
+                Title = contact.Title,
 
             };
         }

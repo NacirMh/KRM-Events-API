@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace KRM_Events_API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241115160930_addedKeyToTicket")]
-    partial class addedKeyToTicket
+    [Migration("20241116094822_addedTitleToContact")]
+    partial class addedTitleToContact
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -161,6 +161,10 @@ namespace KRM_Events_API.Migrations
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserId")
                         .IsRequired()
@@ -429,19 +433,19 @@ namespace KRM_Events_API.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a9d7dc23-7102-43ce-8d28-0ca8f891ff4b",
+                            Id = "7b98f91d-129f-44ee-8ff5-207368684e4b",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "7c91700b-aa73-49a1-b540-7efacbea160c",
+                            Id = "f36a82c9-3eb4-4e6c-8e65-e7114e19515b",
                             Name = "Client",
                             NormalizedName = "CLIENT"
                         },
                         new
                         {
-                            Id = "864541d0-3885-42b3-9e9b-5604c6f16d8d",
+                            Id = "e8e0d2ee-0fed-4245-8650-90d65a5ae2d9",
                             Name = "Announcer",
                             NormalizedName = "ANNOUNCER"
                         });
