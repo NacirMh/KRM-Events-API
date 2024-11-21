@@ -6,7 +6,6 @@
         public string? CategoryName { get; set; } = string.Empty;
 
         public string? HashtagName {  get; set; } = string.Empty;
-        
         public string? City {  get; set; } = string.Empty;
         public string? SortedBy { get; set; } = null;
 

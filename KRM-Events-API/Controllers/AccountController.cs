@@ -68,6 +68,7 @@ namespace KRM_Events_API.Controllers
 
 
                 IdentityResult? roleResult = null;
+
                 if (appUser is Admin)
                 {
                     roleResult = await _userManager.AddToRoleAsync(appUser, "ADMIN");
@@ -106,6 +107,7 @@ namespace KRM_Events_API.Controllers
             }
         }
 
+
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginDTO loginDTO)
         {
@@ -119,7 +121,7 @@ namespace KRM_Events_API.Controllers
                 return Unauthorized(new AuthResponseDTO
                 {
                     isSuccess = false,
-                    Message = $"User with email{loginDTO.Email} not found"
+                    Message = $"User with email {loginDTO.Email} not found"
                 });
             }
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDTO.password, false);
@@ -158,15 +160,66 @@ namespace KRM_Events_API.Controllers
             return Ok(userDetails);
         }
 
+        [HttpGet("Details/{id}")]
+        [Authorize]
+        public async Task<IActionResult> GetUserDetails(string id)
+        {
+
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user is null)
+            {
+                return NotFound(new AuthResponseDTO
+                {
+                    isSuccess = false,
+                    Message = "user not found"
+                });
+            }
+            var userDetails = user.ToUserDetailsFromUser();
+            return Ok(userDetails);
+        }
+
+        [HttpPut("UpdateProfile")]
+        [Authorize]
+        public async Task<IActionResult> UpdateDetails(UpdateProfileDTO updateDto)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+         
+            
+            if (user is null)
+            {
+                return NotFound(new AuthResponseDTO
+                {
+                    isSuccess = false,
+                    Message = "user not found"
+                });
+            }
+            user.City = updateDto.City;
+            user.UserName = updateDto.UserName;
+            user.FirstName = updateDto.FirstName;
+            user.LastName = updateDto.LastName;
+            user.PhoneNumber = updateDto.PhoneNumber;
+            user.Email = updateDto.EmailAddress;
+            await _userManager.UpdateAsync(user);
+            var userDetails = user.ToUserDetailsFromUser();
+            return Ok(userDetails);
+        }
+
         [HttpGet("AllUsers")]
         [Authorize]
-        public async Task<IActionResult> GetAllUsers()
+        public async Task<IActionResult> GetAllUsers([FromQuery] string? Role)
         {
-            var Users = await _userManager.Users.Select(x => x.ToUserDetailsFromUser()).ToListAsync();
+            var users = _userManager.Users.ToList();
 
-            return Ok(Users);
+            if (Role != null)
+            {
+                users =  _userManager.GetUsersInRoleAsync(Role).Result.ToList();
+            }
 
-        }    
+            return Ok(users.Select(x => x.ToUserDetailsFromUser()).ToList());
+
+        }
 
     }
 
