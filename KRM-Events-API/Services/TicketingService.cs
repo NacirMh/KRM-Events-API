@@ -22,6 +22,10 @@ namespace KRM_Events_API.Services
 
             
             var Event = await _eventRepository.GetByIdAsync(EventId);
+            if(Event == null)
+            {
+                return null;
+            }
             var couponCode = Event.CouponCodes.FirstOrDefault(x => x.Id == CouponCodeId);
             Ticket ticket = new Ticket()
             {

@@ -42,7 +42,7 @@ namespace KRM_Events_API.Controllers
             }
             var contact = createContactDto.ToContactFromCreate(user.Id);
             var result = await _contactRepository.Contact(contact);
-            return Ok(result);
+            return Ok(result.ToContactDTO());
         }
 
         [Authorize(Roles = "Admin")]

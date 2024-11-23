@@ -17,10 +17,11 @@ namespace KRM_Events_API.Controllers
         private readonly IEventRepository _eventRepository;
         private readonly ITicketingService _ticketingService;
 
-        public TicketController(UserManager<AppUser> userManager, ITicketingService ticketingService )
+        public TicketController(UserManager<AppUser> userManager, ITicketingService ticketingService , IEventRepository eventRepository)
         {
             _userManager = userManager;
             _ticketingService = ticketingService;
+            _eventRepository = eventRepository;
         }
 
 
