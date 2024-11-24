@@ -36,7 +36,7 @@ namespace KRM_Events_API.Controllers
             return Ok(categoriesDTO);
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> CreateCategory([FromBody] CreateCategoryDTO categoryDto)
         {
@@ -63,7 +63,7 @@ namespace KRM_Events_API.Controllers
             return Ok(categoryUpdate.ToCategoryDTO());  
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {

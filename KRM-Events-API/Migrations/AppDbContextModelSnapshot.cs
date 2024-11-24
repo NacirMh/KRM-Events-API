@@ -126,7 +126,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.ClientAnnouncer", b =>
@@ -141,7 +141,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("ClientAnnouncerFollow");
+                    b.ToTable("ClientAnnouncerFollow", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Contact", b =>
@@ -171,7 +171,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Contacts");
+                    b.ToTable("Contacts", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.CouponCode", b =>
@@ -205,7 +205,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("CouponCodes");
+                    b.ToTable("CouponCodes", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Event", b =>
@@ -251,7 +251,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Events");
+                    b.ToTable("Events", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.EventRequest", b =>
@@ -283,7 +283,7 @@ namespace KRM_Events_API.Migrations
                     b.HasIndex("EventId")
                         .IsUnique();
 
-                    b.ToTable("EventRequests");
+                    b.ToTable("EventRequests", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Favorite", b =>
@@ -298,7 +298,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("ClientId");
 
-                    b.ToTable("Favorites");
+                    b.ToTable("Favorites", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Hashtag", b =>
@@ -319,7 +319,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hashtags");
+                    b.ToTable("Hashtags", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Opinion", b =>
@@ -350,7 +350,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("Opinions");
+                    b.ToTable("Opinions", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Model.Ticket", b =>
@@ -383,7 +383,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("Tickets");
+                    b.ToTable("Tickets", (string)null);
                 });
 
             modelBuilder.Entity("KRM_Events_API.Models.EventHashtag", b =>
@@ -398,7 +398,7 @@ namespace KRM_Events_API.Migrations
 
                     b.HasIndex("EventId");
 
-                    b.ToTable("EventHashtag");
+                    b.ToTable("EventHashtag", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

@@ -275,7 +275,7 @@ namespace KRM_Events_API.Migrations
                     Adresse = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     capacity = table.Column<int>(type: "int", nullable: false),
-                    CategoryId = table.Column<int>(type: "int", nullable: false),
+                    CategoryId = table.Column<int>(type: "int", nullable: true),
                     EventRequestId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -286,7 +286,7 @@ namespace KRM_Events_API.Migrations
                         column: x => x.CategoryId,
                         principalTable: "Categories",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.SetDefault);
                 });
 
             migrationBuilder.CreateTable(

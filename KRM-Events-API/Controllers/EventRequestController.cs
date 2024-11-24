@@ -70,7 +70,7 @@ namespace KRM_Events_API.Controllers
             return Ok(handlingRequestResult);
         }
 
-        [Authorize(Roles = "Announcer")]
+        //[Authorize(Roles = "Announcer")]
         [HttpPost("MakeRequest")]
         public async Task<IActionResult> MakeRequest([FromBody] CreateEventDTO CreateEventRqDto)
         {

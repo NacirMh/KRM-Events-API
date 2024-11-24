@@ -38,7 +38,7 @@ namespace KRM_Events_API.Repositories
                 var hashtag = _DbContext.Hashtags.FirstOrDefault(x => x.HashTagName.Contains(query.HashtagName));
                 if (hashtag != null)
                 {
-                    events = events.Where(x => hashtag.HashTagName.Contains(query.HashtagName));
+                    events = events.Where(x => x.EventHashtags.Any(x=> x.Hashtag.HashTagName.Contains(query.HashtagName)));
                 }
             }
 
@@ -47,7 +47,7 @@ namespace KRM_Events_API.Repositories
                 var category = _DbContext.Categories.FirstOrDefault(x => x.CategoryName.Contains(query.CategoryName));
                 if (category != null)
                 {
-                    events = events.Where(x => category.CategoryName.Contains(query.CategoryName));
+                    events = events.Where(x => x.Category.CategoryName.Contains(query.CategoryName));
                 }
             }
             if (!string.IsNullOrWhiteSpace(query.AnnouncerId))
